@@ -16,6 +16,7 @@ function initiateLocalStorage() {
 		   //enviamos los datos a la vista con el objeto $scope
 		   //$scope.datos = data;
 		//});
+		
 
         //Read the Employee List from LocalStorage  
         $scope.employees = getLocalStorage.getItems();  

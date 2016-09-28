@@ -10,14 +10,32 @@ function initiateLocalStorage() {
     var app = angular.module('test', ['storageService']);  
 
     // Create the Controller  
-    app.controller('Items', ['$scope', 'getLocalStorage', function ($scope, getLocalStorage, $http) {  
+    app.controller('Items', ['$scope', 'getLocalStorage', '$http', function ($scope, getLocalStorage, $http) {  
 
-		//$http.get('../web/js/data.json').success(function (data) {
-		   //enviamos los datos a la vista con el objeto $scope
-		   //$scope.datos = data;
-		//});
+
+        getJsonData = function () {  
+	        $http.get('../web/js/data.json').success(function (data) {
+				$scope.employees = getLocalStorage.getItems();  
+            	
+            	for (var i = 0; i >= $scope.employees.length; i++) {
+            	 	$scope.employees.push({ 
+            			'descripcion': data[i].descripcion, 
+	            		'actividad'	 : data[i].actividad, 
+	            		'encargado'  : data[i].encargado, 
+	            		'estatus'    : data[i].estatus  
+            		}); 
+
+            	 }; 
+            
+            	getLocalStorage.updateEmployees($scope.employees);  
+
+
+					   
+			});
+		}
+
+		getJsonData();
 		
-
         //Read the Employee List from LocalStorage  
         $scope.employees = getLocalStorage.getItems();  
 
@@ -58,16 +76,17 @@ function initiateLocalStorage() {
             updateEmployees: function (EmployeesArr) {  
                 if (window.localStorage && EmployeesArr) {  
                     //Local Storage to add Data  
-                    localStorage.setItem("employees", angular.toJson(EmployeesArr));  
+                    localStorage.setItem("item", angular.toJson(EmployeesArr));  
                 }  
                 employeeList = EmployeesArr;  
 
             },  
             getItems: function () {  
                 //Get data from Local Storage  
-                employeeList = angular.fromJson(localStorage.getItem("employees"));  
+                employeeList = angular.fromJson(localStorage.getItem("item"));  
                 return employeeList ? employeeList : [];  
-            }  
+            }
+            
              
         };  
 

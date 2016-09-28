@@ -1,0 +1,14 @@
+[
+    {
+        "descripcion":"curso",
+        "actividad":"temario",
+        "encargado":"christiam",
+        "estatus":"iniciado"
+    },
+    {
+        "descripcion":"sitio web",
+        "actividad":"crear proyecto",
+        "encargado":"warao",
+        "estatus":"procesado"
+    }
+]

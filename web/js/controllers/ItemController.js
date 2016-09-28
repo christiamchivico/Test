@@ -16,8 +16,10 @@ function initiateLocalStorage() {
         getJsonData = function () {  
 	        $http.get('../web/js/data.json').success(function (data) {
 				$scope.employees = getLocalStorage.getItems();  
+
+				$scope.count = data.length;
             	
-            	for (var i = 0; i >= $scope.employees.length; i++) {
+            	for (var i = 0; i > $scope.employees.length; i++) {
             	 	$scope.employees.push({ 
             			'descripcion': data[i].descripcion, 
 	            		'actividad'	 : data[i].actividad, 
@@ -25,12 +27,8 @@ function initiateLocalStorage() {
 	            		'estatus'    : data[i].estatus  
             		}); 
 
+            		getLocalStorage.updateEmployees($scope.employees);  
             	 }; 
-            
-            	getLocalStorage.updateEmployees($scope.employees);  
-
-
-					   
 			});
 		}
 

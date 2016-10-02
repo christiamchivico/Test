@@ -1,3 +1,22 @@
+'use strict';
+angular
+    .module('Test')
+    .controller('ItemController', ItemController)
+    //.directive('ItemsComponent', ItemsComponent)
+
+ItemController.$inject = [ 'ItemFactory' ];
+
+function ItemController( ItemFactory ){
+    
+    ItemFactory.getData();
+    
+
+
+
+}
+
+
+/*
 var isHtml5Compatible = document.createElement('canvas').getContext != undefined;  
 
 if (isHtml5Compatible) {  
@@ -90,3 +109,5 @@ function initiateLocalStorage() {
 
     });  
 }  
+
+*/

@@ -1,4 +1,3 @@
-'use strict';
 angular
     .module('Test')
     .controller('ItemController', ItemController)
@@ -8,15 +7,42 @@ ItemController.$inject = [ 'ItemFactory' ];
 
 function ItemController( ItemFactory ){
     
-    ItemFactory.getData();
-    
+    var vm = this;
 
+    vm.dataJson = ItemFactory.getData();
+    vm.items    = JSON.parse(ItemFactory.getItems());
+    
+    vm.addItem  = function(data)
+    {
+        alert('hola')
+        //vm.datos = JSON.stringify(vm.items)
+        vm.items.push({
+                'descripcion'   : data.descripcion, 
+                'actividad'     : data.actividad, 
+                'encargado'     : data.encargado, 
+                'estatus'       : data.estatus 
+            })
+        ItemFactory.saveData(vm.items);
+
+    } 
+
+    angular.element(document).find('itemComponent').isolateScope().vm
+    console.log(vm.items)
 
 
 }
 
 
 /*
+
+
+$scope.employees.push({ 'descripcion': $scope.descripcion, 'actividad': $scope.actividad, 'encargado': $scope.encargado, 'estatus': $scope.estatus  });  
+            getLocalStorage.updateEmployees($scope.employees);  
+            $scope.empno = '';  
+            $scope.empname = '';  
+            $scope.empsalary = '';  
+            $scope.count = $scope.employees.length;  
+ 
 var isHtml5Compatible = document.createElement('canvas').getContext != undefined;  
 
 if (isHtml5Compatible) {  
@@ -29,27 +55,7 @@ function initiateLocalStorage() {
     var app = angular.module('test', ['storageService']);  
 
     // Create the Controller  
-    app.controller('Items', ['$scope', 'getLocalStorage', '$http', function ($scope, getLocalStorage, $http) {  
-
-
-        getJsonData = function () {  
-	        $http.get('../web/js/data.json').success(function (data) {
-				$scope.employees = getLocalStorage.getItems();  
-
-				$scope.count = data.length;
-            	
-            	for (var i = 0; i > $scope.employees.length; i++) {
-            	 	$scope.employees.push({ 
-            			'descripcion': data[i].descripcion, 
-	            		'actividad'	 : data[i].actividad, 
-	            		'encargado'  : data[i].encargado, 
-	            		'estatus'    : data[i].estatus  
-            		}); 
-
-            		getLocalStorage.updateEmployees($scope.employees);  
-            	 }; 
-			});
-		}
+ 
 
 		getJsonData();
 		

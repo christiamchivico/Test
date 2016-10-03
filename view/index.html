@@ -12,91 +12,66 @@
  
 </head>
 <body>
-	<div ng-app="Test">
-		<div ng-controller="ItemController">
-			
+	<div class="container" ng-app="Test">
+	    <div class="row">
+    		<div class="col s12">
+    			<div class="card-panel teal lighten-2">
+    				<h3>Test Angular- Json</h3>
+    			</div>
+    		</div>
+		    	
+		    <div ng-controller="ItemController as ctrl">
+		    	<div class="col s7">
+					<item-component></item-component>
+		    	</div>
+		    	<div class="col s5">
+			        <form name="frm"> 
+			            <table class="responsive-table bordered">  
+			                <tr>  
+			                    <td >Descripcion:</td>  
+			                    <td>
+			                    	<input class="search-wrapper card"  type="text" name="descripcion" ng-model="datos.descripcion" required>
+			                    </td>  
+			                </tr>  
+			                <tr>  
+			                    <td>Actividad  :  </td>  
+			                    <td>  
+			                        <input type="text" name="actividad" ng-model="datos.actividad" required>  
+			                    </td>  
+			                </tr>  
+			                <tr>  
+			                    <td>Encargado   : </td>  
+			                    <td><input type="text" name="encargado" ng-model="datos.encargado"> </td>  
+			                </tr>
+			                <tr >  
+			                    <td>Estatus   : </td>  
+			                    <td> <input type="text" name="estatus" ng-model="datos.estatus">  	                    </td>  
+			                </tr>  
+			                <tr>  
+			                    <td colspan="2" align="right">  
+			                        <button class="btn waves-effect waves-light teal lighten-2" ng-click="ctrl.addItem(datos)" ng-disabled="frm.$invalid">+Tarea</button>  
+			                    </td>  
+			  
+			                </tr>  
+			            </table>  
+			        </form>  
+		    	</div>
+		    	
+			</div>
 		</div>
 	</div>
-	<!--
-	<div ng-app="test">
-		<div ng-controller="Items">  
-		    <div class="container">
-		    	<div class="row">
-		    		<div class="col s12">
-		    			<div class="card-panel teal lighten-2">
-		    				<h3>Test Angular- Json</h3>
-		    			</div>
-     
-		    		</div>
-		    		<div class="col s4">
-				        <form name="frm"> 
-				            <table class="responsive-table bordered">  
-				                <tr>  
-				                    <td >Descripcion:</td>  
-				                    <td><input class="search-wrapper card"  type="text" name="descripcion" ng-model="descripcion" required><br /></td>  
-				                </tr>  
-				                <tr>  
-				                    <td>Actividad  :  </td>  
-				                    <td>  
-				                        <input type="text" name="actividad" ng-model="actividad" required>  
-				                    </td>  
-				                </tr>  
-				                <tr>  
-				                    <td>Encargado   : </td>  
-				                    <td><input type="text" name="encargado" ng-model="encargado"> </td>  
-				                </tr>
-				                <tr >  
-				                    <td>Estatus   : </td>  
-				                    <td> <input type="text" name="estatus" ng-model="estatus">  	                    </td>  
-				                </tr>  
-				                <tr>  
-				                    <td colspan="2" align="right">  
-				                        <button class="btn waves-effect waves-light teal lighten-2" ng-click="addEmployee()" ng-disabled="frm.$invalid">+Tarea</button>  
-				                    </td>  
-				  
-				                </tr>  
-				            </table>  
-				        </form>  
-		    		</div>
-		    		<div class="col s8">
 
-				        <table class="striped">  
-				            <tr>  
-				                <td><b>Descripcion</b></td>  
-				                <td><b>Actividad</b></td>  
-				                <td><b>Encargado</b></td>  
-				                <td><b>Estatus</b></td>  
-				                <td><b>Accion</b></td>  
-				            </tr>  
-				            <tr ng-repeat="employee in employees">  
-				                <td>{{ employee.descripcion }} </td>  
-				                <td>{{ employee.actividad }} </td>  
-				                <td>{{ employee.encargado }} </td>  
-				                <td>{{ employee.estatus }} </td>  
-				                <td>  
-				                    <button ng-click="deleteEmployee(employee)">Delete</button>  
-				                </td>  
-				            </tr>  
-				        </table>  
-			        	<div>Total{{count}}</div>  
-
-		    		</div>
-		    	</div>
-		    </div>
-
-         </div>  
-	</div>
-	-->
 	
 	<!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="../web/materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="../web/js/angular.min.js"></script>
+    <script type="text/javascript" src="../web/js/angular1.5.min.js"></script>
     
 	<!--Import File Item.js-->
     <script type="text/javascript" src="../web/js/controllers/ItemModule.js"></script>
     <script type="text/javascript" src="../web/js/controllers/ItemService.js"></script>
     <script type="text/javascript" src="../web/js/controllers/ItemController.js"></script>
+    <script type="text/javascript" src="../web/js/controllers/ItemComponent.js"></script>
+
     
 
 </body>

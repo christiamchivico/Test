@@ -21,42 +21,44 @@
     		</div>
 		    	
 		    <div ng-controller="ItemController as ctrl">
-		    	<div class="col s7">
-					<item-component></item-component>
+		    	<div class="col s8">
+					<item-component items="ctrl.items"></item-component>
 		    	</div>
-		    	<div class="col s5">
-			        <form name="frm"> 
-			            <table class="responsive-table bordered">  
-			                <tr>  
-			                    <td >Descripcion:</td>  
-			                    <td>
-			                    	<input class="search-wrapper card"  type="text" name="descripcion" ng-model="datos.descripcion" required>
-			                    </td>  
-			                </tr>  
-			                <tr>  
-			                    <td>Actividad  :  </td>  
-			                    <td>  
-			                        <input type="text" name="actividad" ng-model="datos.actividad" required>  
-			                    </td>  
-			                </tr>  
-			                <tr>  
-			                    <td>Encargado   : </td>  
-			                    <td><input type="text" name="encargado" ng-model="datos.encargado"> </td>  
-			                </tr>
-			                <tr >  
-			                    <td>Estatus   : </td>  
-			                    <td> <input type="text" name="estatus" ng-model="datos.estatus">  	                    </td>  
-			                </tr>  
-			                <tr>  
-			                    <td colspan="2" align="right">  
-			                        <button class="btn waves-effect waves-light teal lighten-2" ng-click="ctrl.addItem(datos)" ng-disabled="frm.$invalid">+Tarea</button>  
-			                    </td>  
-			  
-			                </tr>  
-			            </table>  
+		    	<div class="col s4">
+			        <form> 
+			        	<div class="col s5">
+			            	<label>Descripcion:</label>
+		            	</div>
+		            	<div class="col s7">
+		                    <input class="search-wrapper card"  
+		                    	type="text" name="descripcion" 
+		                    	ng-model="datos.descripcion" required>
+			            </div>
+			            <div class="col s5">
+			            	<label>Actividad:</label>
+		            	</div>
+		            	<div class="col s7">
+			                <input type="text" name="actividad" ng-model="datos.actividad" required>  
+			            </div>
+			            <div class="col s5">
+			            	<label>Encargado:</label>
+		            	</div>
+		            	<div class="col s7">
+			                <input type="text" name="encargado" ng-model="datos.encargado"> 
+			            </div>
+			            <div class="col s5">
+			            	<label>Estatus:</label>
+		            	</div>
+		            	<div class="col s7">
+			                <input type="text" name="encargado" ng-model="datos.estatus"> 
+			            </div>
+			            <div>
+			                <button class="btn waves-effect waves-light teal lighten-2" 
+			                		ng-click="ctrl.addItem(datos)" 
+			                		ng-disabled="frm.$invalid">+Tarea</button>  
+			            </div>
 			        </form>  
 		    	</div>
-		    	
 			</div>
 		</div>
 	</div>
